@@ -22,7 +22,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
-      - pgadminData:/var/lib/pgadmin
+      - ./pgadminData:/var/lib/pgadmin
     ports:
       - '16543:80'
     depends_on:

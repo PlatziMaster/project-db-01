@@ -27,12 +27,12 @@ https://docs.docker.com/compose/install/
 ...
 ... Lots of messages...
 ...
-Creating network "northwind_psql_default" with the default driver
+Creating network "clase-01_postgres-network" with the default driver
 Creating northwind_psql_db_1 ... done
-db_1  | 2019-11-28 21:07:14.357 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-db_1  | 2019-11-28 21:07:14.357 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-db_1  | 2019-11-28 21:07:14.364 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-db_1  | 2019-11-28 21:07:14.474 UTC [1] LOG:  database system is ready to accept connections
+postgres-compose_1  | 2019-11-28 21:07:14.357 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-compose_1  | 2019-11-28 21:07:14.357 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-compose_1  | 2019-11-28 21:07:14.364 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-compose_1  | 2019-11-28 21:07:14.474 UTC [1] LOG:  database system is ready to accept connections
 ```
 
 #### 2. run psql client in the docker-compose container
@@ -40,7 +40,7 @@ db_1  | 2019-11-28 21:07:14.474 UTC [1] LOG:  database system is ready to accept
 Open another terminal window, and type:
 
 ```bash
-> docker-compose exec db psql -U northwind_user -d northwind
+> docker-compose exec postgres-compose psql -U northwind_user -d northwind
 
 psql (10.5 (Debian 10.5-1.pgdg90+1))
 Type "help" for help.
@@ -61,5 +61,5 @@ Stop the server that was launched by `docker compose up` via `Ctrl-C`, then remo
 docker-compose down
 ```
 
-Your modifications will be persisted in the `dabata/` local folder, and can be retrieved
+Your modifications will be persisted in the `dbdata/` local folder, and can be retrieved
 once you restart `docker compose up`.
