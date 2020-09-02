@@ -11,7 +11,8 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - dbData:/var/lib/postgresql/data
+      - ./dbdata:/var/lib/postgresql/data
+      - ./northwind.sql:/docker-entrypoint-initdb.d/northwind.sql
     networks:
       - postgres-network
 
@@ -30,7 +31,7 @@ services:
       - postgres-network
 
 volumes:
-  dbData:
+  dbdata:
   pgadminData:
 
 networks:
